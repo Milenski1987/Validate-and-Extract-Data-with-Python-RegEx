@@ -91,7 +91,7 @@ def replace_word(text, old_word, new_word):
 
 def greeting():
     """
-    This function gives to user option to choose what type of work want to do
+    This function gives the user the option to choose what type of work they want to do
     """
     print("Welcome to the world of RegEx")
     print("Choose what you want to do:")
@@ -106,7 +106,7 @@ def greeting():
 def main():
     greeting()
     while True:
-        # User need to enter valid integer
+        # User needs to enter a valid integer
         try:
             user_choice = int(input("Make your choice by entering a number: "))
             if user_choice not in [1, 2, 3, 4, 5, 0]:
