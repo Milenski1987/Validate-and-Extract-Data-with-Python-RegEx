@@ -15,3 +15,20 @@ This program helps us extract, validate, and manipulate text in Python with Regu
 - Find and extract URLs(links) in given text
 
 
+## ⚙️ Technology stack:
+<p align="left">
+  &emsp;
+    <a href="#"><img alt="Python" src="https://github.com/tandpfun/skill-icons/blob/main/icons/Python-Dark.svg" width="40" height ="40"></a>
+  &emsp;
+    <a href="#"><img src="https://github.com/tandpfun/skill-icons/blob/main/icons/PyCharm-Dark.svg" width="40" height="40" /></a>
+  &emsp;
+    <a href="https://github.com/Milenski1987"><img alt="GitHub" src="https://github.com/tandpfun/skill-icons/blob/main/icons/Github-Dark.svg" title="GitHub" **alt="GitHub" width="40" height="40" ></a>
+  &emsp;
+    <a href="#"><img src="https://github.com/tandpfun/skill-icons/blob/main/icons/Apple-Dark.svg" title="Apple" **alt="Apple" width="40" height="40" /></a>
+  &emsp;
+    <a href="#"><img src="https://github.com/tandpfun/skill-icons/blob/main/icons/Windows-Dark.svg" title="Windows" **alt="Windows" width="40" height="40" /></a>
+</p>
+
+
+---
+### Made by [Milen Nikolov](https://www.linkedin.com/in/milen-nikolov-62455034b/)
