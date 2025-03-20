@@ -89,6 +89,22 @@ def replace_word(text, old_word, new_word):
     return result
 
 
+def extract_dates():
+    """
+    This function should find and return all dates in specific format from the given text.
+    Use re.findall() with proper regex patterns to match dates.
+    """
+    text = input("Please enter text to search for dates: ")
+    # dates regex pattern
+    date_pattern = r"\b(0[1-9]|[1-2][0-9]|3[0-1])([(\/\-\.])([A-Z][a-z]{2}|0[1-9]|1[0-2])\2([0-9]{4})\b"
+    valid_dates = []
+
+    dates = re.findall(date_pattern, text)
+    for date in dates:
+        valid_dates.append(f"Day: {date[0]} Month: {date[2]} Year: {date[3]}")
+    return valid_dates
+
+
 def greeting():
     """
     This function gives the user the option to choose what type of work they want to do
@@ -100,6 +116,7 @@ def greeting():
     print("3. Validate email.")
     print("4. Validate Password.")
     print("5. Replace all occurrences of chosen word with new word in given text")
+    print("6. Extract valid dates from given text")
     print("0. Exit")
 
 
@@ -109,7 +126,7 @@ def main():
         # User needs to enter a valid integer
         try:
             user_choice = int(input("Make your choice by entering a number: "))
-            if user_choice not in [1, 2, 3, 4, 5, 0]:
+            if user_choice not in [1, 2, 3, 4, 5, 6, 0]:
                 raise UnknownCommand
         except ValueError:
             print("Please enter valid positive number:")
@@ -127,7 +144,8 @@ def main():
         2: extract_emails_and_phones,
         3: validate_email,
         4: validate_password,
-        5: replace_word
+        5: replace_word,
+        6: extract_dates
     }
 
     print(choices[user_choice]())
