@@ -10,10 +10,7 @@ This program helps us extract, validate, and manipulate text in Python with Regu
 - Validate password from user input
 - Replace the chosen word from the given text with another word
 - Extract valid dates from given text. (valid dates are in format DD MMM YYYY or DD MM YYYY and valid separators are "/" , "." , "-" )
-
-### The next features will be:
-- Find and extract dates in a given text
-- Find and extract URLs(links) in given text
+- Find and extract URLs for given text.
 
 
 ## ⚙️ Technology stack:
