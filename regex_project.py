@@ -1,4 +1,5 @@
 import re
+import time
 
 # Catch if user choice is out of range of commands
 class UnknownCommand(Exception):
@@ -51,7 +52,7 @@ def validate_email():
     """
     email = input("Please enter email for validation: ")
     # Email regex pattern
-    email_pattern = r"\b[a-z]+@[a-z]+\.[a-z]+\b"
+    email_pattern = r"\b[a-z0-9]+[\_\.\-]?[a-z0-9]+@[a-z]+\.[a-z]+\b"
     # Return True if the email is valid, otherwise False
     match = re.match(email_pattern, email, flags=re.IGNORECASE)
     if match:
@@ -74,7 +75,7 @@ def validate_password():
     return False
 
 
-def replace_word(text, old_word, new_word):
+def replace_word():
     """
     This function should replace all occurrences of 'old_word' with 'new_word' in the given text.
     Use re.sub() for this task.
@@ -105,11 +106,25 @@ def extract_dates():
     return valid_dates
 
 
+def extract_urls():
+    """
+    This function should find and return all URLs found the given text.
+    Use re.findall() with proper regex patterns to match URLs.
+    """
+    text = input("Please enter text to look for URLs: ")
+    # URLs regex pattern
+    url_pattern = r"\b((https:\/\/|www\.+)([a-z]+\-?[a-z]+)(\.[a-z]+){1,2})\b"
+
+    links = []
+    links_result = re.findall(url_pattern, text)
+    for link in links_result:
+        links.append(link[0])
+    return links
+
 def greeting():
     """
     This function gives the user the option to choose what type of work they want to do
     """
-    print("Welcome to the world of RegEx")
     print("Choose what you want to do:")
     print("1. Find email in given text.")
     print("2. Extract emails and phone numbers from given text.")
@@ -117,16 +132,18 @@ def greeting():
     print("4. Validate Password.")
     print("5. Replace all occurrences of chosen word with new word in given text")
     print("6. Extract valid dates from given text")
+    print("7. Find and extract URLs from given text")
     print("0. Exit")
 
-
-def main():
-    greeting()
+def user_choices():
+    """
+    Brain of the program
+    """
     while True:
         # User needs to enter a valid integer
         try:
             user_choice = int(input("Make your choice by entering a number: "))
-            if user_choice not in [1, 2, 3, 4, 5, 6, 0]:
+            if user_choice not in [1, 2, 3, 4, 5, 6, 7, 0]:
                 raise UnknownCommand
         except ValueError:
             print("Please enter valid positive number:")
@@ -136,7 +153,7 @@ def main():
             break
 
     if user_choice == 0:
-        print("Goodbye")
+        goodbye()
         exit()
 
     choices = {
@@ -145,9 +162,36 @@ def main():
         3: validate_email,
         4: validate_password,
         5: replace_word,
-        6: extract_dates
-    }
-
+        6: extract_dates,
+        7: extract_urls
+        }
     print(choices[user_choice]())
 
-main()
+    time.sleep(2)
+
+    print("Do you want to continue with another option in program?")
+    next_choice = input("Y or N: ")
+    if next_choice.upper() == "Y":
+        print()
+        greeting()
+        user_choices()
+    else:
+        goodbye()
+        exit()
+
+def goodbye():
+    """
+    Something for goodbye
+    """
+    print("Goodbye")
+    print("Thank you for support")
+
+
+def main():
+    print("Welcome to the world of RegEx")
+    greeting()
+    user_choices()
+
+
+if __name__ == '__main__':
+    main()
